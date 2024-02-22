@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
     <head>
-        <meta charset="<?php bloginfo( 'charset' ); ?>"> <!-- Controllo il charset dal pannello di WP -->
+        <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <!-- 
@@ -10,10 +10,10 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
         -->
         <link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>" type="text/css" />
-        <?php wp_head(); ?> <!-- Hook di wordpress che gestisce i caricamenti nell'header della pagina -->
+        <?php wp_head(); ?> 
     </head>
-    <body>
-    <header class="mb-3">
+    <body <?php body_class(); ?>>
+    <header id="masthead" class="site-header" role="banner">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php esc_url(home_url('/')); ?>"><?php bloginfo( 'name' ); ?></a>
