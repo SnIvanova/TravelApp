@@ -182,6 +182,94 @@ function save_background_image_field($post_id) {
 
 add_action('save_post', 'save_background_image_field');
 
+function theme_customize_register($wp_customize) {
+    //contact info
+    $wp_customize->add_section('contact_info', array(
+        'title'    => __('Contact Info', 'your-theme-domain'),
+        'priority' => 30,
+    ));
+
+    // setting for phone number
+    $wp_customize->add_setting('phone_number', array(
+        'default'   => '+39 345 3324 56789',
+        'transport' => 'refresh',
+    ));
+
+    // control for phone number
+    $wp_customize->add_control('phone_number', array(
+        'label'    => __('Phone Number', 'your-theme-domain'),
+        'section'  => 'contact_info',
+        'settings' => 'phone_number',
+        'type'     => 'text',
+    ));
+
+     
+    $wp_customize->add_setting('social_links[0][url]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[0][icon]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[0][url]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[0][icon]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));    $wp_customize->add_setting('social_links[0][url]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[0][icon]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+
+   
+    $wp_customize->add_control('social_links[0][url]', array(
+        'label'    => __('Social Link URL', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][url]',
+        'type'     => 'url',
+    ));
+    $wp_customize->add_control('social_links[0][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][icon]',
+        'type'     => 'text',
+    ));
+    $wp_customize->add_control('social_links[0][url]', array(
+        'label'    => __('Social Link URL', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][url]',
+        'type'     => 'url',
+    ));
+    $wp_customize->add_control('social_links[0][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][icon]',
+        'type'     => 'text',
+    ));
+    $wp_customize->add_control('social_links[0][url]', array(
+        'label'    => __('Social Link URL', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][url]',
+        'type'     => 'url',
+    ));
+    $wp_customize->add_control('social_links[0][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[0][icon]',
+        'type'     => 'text',
+    ));
+
+}
+
+add_action('customize_register', 'theme_customize_register');
+
 
 
 
