@@ -1,8 +1,8 @@
 /*
 Theme Name: Travel App
-Theme URI: 
-Author: Your Name
-Author URI: 
+Theme URI: https://travellapp.netsons.org
+Author: Arcangelo Gifuni, Gianluca Rufo,Luca Di Muro,  Pierpaolo Giorgi, Giuseppe Longo, Victor Joltoianu, Snizhana Ivanova, Maria Tavino
+Author URI: https://travellapp.netsons.org
 Description: Custom theme for Travel App website.
 Version: 1.0
 License: GNU General Public License v2 or later
@@ -10,3 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: adventure, travel, nature
 Text Domain: 
 */
+
+html {
+    margin-top: 0 !important;
+}
+
+/* body.admin-bar #masthead {
+    margin-top: 32px;
+} */
