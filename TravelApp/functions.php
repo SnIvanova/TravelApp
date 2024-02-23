@@ -48,9 +48,10 @@ function theme_scripts() {
     if (is_front_page()) {wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/style/index.css');};
 
     wp_enqueue_style( 'theme-style', get_template_directory_uri().'/style.css' );
-    wp_enqueue_style( 'styleFooter', get_template_directory_uri().'/assets/style/gallery.css' );
+    wp_enqueue_style( 'styleGallery', get_template_directory_uri().'/assets/style/gallery.css' );
     wp_enqueue_style( 'styleFooter', get_template_directory_uri().'/assets/style/styleFooter.css' );
     wp_enqueue_style( 'styleContact', get_template_directory_uri().'/assets/style/styleContact.css' );
+  
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
@@ -186,7 +187,7 @@ add_action('save_post', 'save_background_image_field');
 function theme_customize_register($wp_customize) {
     //contact info
     $wp_customize->add_section('contact_info', array(
-        'title'    => __('Contact Info', 'TravelApp'),
+        'title'    => __('Contact Info', 'theme-domain'),
         'priority' => 30,
     ));
 
@@ -198,7 +199,7 @@ function theme_customize_register($wp_customize) {
 
     // control for phone number
     $wp_customize->add_control('phone_number', array(
-        'label'    => __('Phone Number', 'your-theme-domain'),
+        'label'    => __('Phone Number', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'phone_number',
         'type'     => 'text',
@@ -231,37 +232,37 @@ function theme_customize_register($wp_customize) {
 
    
     $wp_customize->add_control('social_links[0][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[0][url]',
         'type'     => 'url',
     ));
     $wp_customize->add_control('social_links[0][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[0][icon]',
         'type'     => 'text',
     ));
     $wp_customize->add_control('social_links[1][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[1][url]',
         'type'     => 'url',
     ));
     $wp_customize->add_control('social_links[1][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[1][icon]',
         'type'     => 'text',
     ));
     $wp_customize->add_control('social_links[2][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[2][url]',
         'type'     => 'url',
     ));
     $wp_customize->add_control('social_links[2][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[2][icon]',
         'type'     => 'text',
@@ -286,10 +287,23 @@ function fallback() {
                                 <a class="nav-link" href="#">Articles</a>
                             </li>
                         </ul>';
-                    }        
-
-
-
+                    }     
+                    
+function create_gallery_post_type() {
+    register_post_type('gallery_item',
+        array(
+            'labels'=> array(
+            'name'  => __('Gallery Items', 'textdomain'),
+            'singular_name' => __('Gallery Item', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'    => array('title', 'thumbnail'),
+            'rewrite'     => array('slug' => 'gallery-items'),
+            )
+        );
+    }
+add_action('init', 'create_gallery_post_type');  
 
 
 
