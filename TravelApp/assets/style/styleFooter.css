@@ -1,0 +1,24 @@
+.di i{
+    cursor: pointer;
+    font-size: 1.5em ;
+    color: grey;
+}
+
+.c2 a{
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+.c1 a{
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+.hi{
+    height: 30em;
+    width: 100%;
+}
