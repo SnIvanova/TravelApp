@@ -7,6 +7,14 @@
                 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
                 <spline-viewer url="https://prod.spline.design/UaSUm-MX2mReSaO8/scene.splinecode"></spline-viewer>
             </div>
+
+            <div class="container-fluid bg-black">
+                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/gYBGPLRfgbed4n-K/scene.splinecode"></spline-viewer>
+            </div>
+
+
+
             <div class="container-fluid text-center bg-black">                
                 <h1 class="text-center text-white">404 Page: Not Found</h1>
                 <div class="page-wrapper">
