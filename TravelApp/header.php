@@ -49,26 +49,13 @@
                     'theme_location' => 'primary-menu',
                     'container' => false,
                     'menu_class' => 'navbar-nav',
-                    'fallback_cb' => '__return_false',
+                    'fallback_cb' => 'fallback', 
                     'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                     'depth' => 2,
                     'walker' => new bootstrap_5_wp_nav_menu_walker()
                 ));
                 ?>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page-contacts.php">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Articles</a>
-                    </li>
-                </ul>
+                       
             </div>
         </div>
     </nav>
