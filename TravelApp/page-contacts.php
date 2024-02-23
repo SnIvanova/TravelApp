@@ -16,7 +16,7 @@ Template Name: Contacts
 
 </style>
 <?php get_header(); ?>
-<div id="content" class="widecolumn">
+<div id="content " class="widecolumn">
     <!-- <h2 id="post-<?php the_ID(); ?>"><?php the_title();?></h2> -->
     <div class="entrytext">
     <div class="form-main">
@@ -50,6 +50,5 @@ Template Name: Contacts
     </div>
 </div>
 </div>
-
 
 
