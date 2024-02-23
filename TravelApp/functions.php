@@ -39,7 +39,6 @@ function theme_scripts() {
 
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/assets/js/custom-script.js'); 
     wp_enqueue_style( 'styleFooter', get_template_directory_uri().'/assets/style/styleFooter.css' );
-    wp_enqueue_style( 'styleContact', get_template_directory_uri().'/assets/style/styleContact.css' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
@@ -131,65 +130,6 @@ function theme_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'theme_widgets_init' );
-
-//contact page
-function register_background_image_field() {
-    add_meta_box(
-        'background_image_meta_box', // ID del meta box
-        'Immagine di sfondo', // Titolo del meta box
-        'show_background_image_meta_box', // Funzione per visualizzare il meta box
-        'page', // Post type dove mostrare il meta box
-        'side', // Posizione del meta box
-        'default' // Priorità del meta box
-    );
-}
-add_action('add_meta_boxes', 'register_background_image_field');
-
-function show_background_image_meta_box($post) {
-    wp_nonce_field(basename(__FILE__), 'background_image_meta_box_nonce');
-    $background_image = get_post_meta($post->ID, 'background_image', true);
-    
-    // Elenco delle immagini predefinite
-    $default_images = array(
-        get_stylesheet_directory_uri() . '/assets/img/background1.webp',
-        get_stylesheet_directory_uri() . '/assets/img/background2.jpg',
-        get_stylesheet_directory_uri() . '/assets/img/background3.jpg'
-    );
-    
-    // Mostra l'opzione per caricare un'immagine personalizzata
-    echo '<input type="file" name="background_image" value="' . $background_image . '">';
-
-    // Mostra l'elenco delle immagini predefinite
-    foreach ($default_images as $image_url) {
-        echo '<input type="radio" name="default_background_image" value="' . $image_url . '">';
-        echo '<img src="' . $image_url . '" style="width: 200px; height: auto;">';
-    }
-}
-
-
-function save_background_image_field($post_id) {
-    if (!isset($_POST['background_image_meta_box_nonce']) || !wp_verify_nonce($_POST['background_image_meta_box_nonce'], basename(__FILE__))) {
-        return;
-    }
-    if (isset($_FILES['background_image']) && $_FILES['background_image']['size'] > 0) {
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-        $overrides = array('test_form' => false);
-        $file = wp_handle_upload($_FILES['background_image'], $overrides);
-        if (isset($file['error'])) {
-            wp_die('Errore durante il caricamento dell\'immagine: ' . $file['error']);
-        } else {
-            update_post_meta($post_id, 'background_image', $file['url']);
-        }
-    }
-    
-    // Salva l'URL dell'immagine predefinita scelta dall'utente
-    if (isset($_POST['default_background_image'])) {
-        update_post_meta($post_id, 'background_image', $_POST['default_background_image']);
-    }
-}
-
-add_action('save_post', 'save_background_image_field');
-
 
 
 
