@@ -164,7 +164,25 @@ function theme_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
 
-   
+    $wp_customize->add_setting('social_links[1][url]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[1][icon]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[2][url]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting('social_links[2][icon]', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+
+
+
     $wp_customize->add_control('social_links[0][url]', array(
         'label'    => __('Social Link URL', 'TravelApp'),
         'section'  => 'contact_info',
@@ -175,6 +193,31 @@ function theme_customize_register($wp_customize) {
         'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
         'section'  => 'contact_info',
         'settings' => 'social_links[0][icon]',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_control('social_links[1][url]', array(
+        'label'    => __('Social Link URL', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[1][url]',
+        'type'     => 'url',
+    ));
+    $wp_customize->add_control('social_links[1][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[1][icon]',
+        'type'     => 'text',
+    ));
+    $wp_customize->add_control('social_links[2][url]', array(
+        'label'    => __('Social Link URL', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[2][url]',
+        'type'     => 'url',
+    ));
+    $wp_customize->add_control('social_links[2][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'section'  => 'contact_info',
+        'settings' => 'social_links[2][icon]',
         'type'     => 'text',
     ));
 }
