@@ -1,0 +1,49 @@
+.form-input, .form-textarea {
+    border: none;
+    border-bottom: 1.5px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.form-head {
+    color: white;
+}
+
+.form-main {
+    background: linear-gradient(to bottom, #613C72, #343663);
+    opacity: 0.75;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.btn-wrap .btn {
+    background-color: #211A43;
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 13px 0;
+    width: 9vw;
+}
+
+.btn i {
+    margin-left:5px;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: #ffffff;
+}
+
+
+.form-main {
+    width: 40%; /* Larghezza del blocco */
+    height: 80vh; /* Altezza del blocco */
+    margin: 7vh 8vw; /* Centra il blocco orizzontalmente */
+    padding: 3em;
+}
+
+.form-card .form-input, .form-card .form-textarea {
+    width: 100%; /* Larghezza di Nome, Email, Oggetto e Messaggio */
+    height: 8vh;
+}
