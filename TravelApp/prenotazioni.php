@@ -1,15 +1,14 @@
-
 <?php
 /*
-Template Name: Home
+Template Name: prenotazioni
 */
 ?>
 
 
-<div id='home'>
+<div id='prenotazioni'>
 <?php get_header(); ?>
 <style>
-#home {
+#prenotazioni {
     background: url('<?php echo get_post_meta(get_the_ID(), 'background_image', true); ?>'); 
     background-size: cover;
     background-position: center;
@@ -22,8 +21,9 @@ Template Name: Home
 
 <div class="container imageBG">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-8">
+    <div class="col justify-content-center">
       <?php
+      
       if ( have_posts() ) : 
         while ( have_posts() ) : the_post();
           the_post_thumbnail();
@@ -34,11 +34,10 @@ Template Name: Home
         _e('Sorry, no posts matched your criteria.', 'textdomain');
       endif;
       ?>
+      
 
     </div>
   </div>
 </div>
 <?php get_footer(); ?>
 </div>
-
-
