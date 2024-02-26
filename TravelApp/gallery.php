@@ -51,8 +51,8 @@ get_header(); ?>
                         <div class="row g-2">
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
                                 <div class="gallery-item h-100">
-                                <img src="<?php echo get_field('gallery_image_1', $page_id); $field = get_field_object('gallery_image_1', $page_id);
-print_r($field);?>" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <img src="<?php echo do_shortcode(get_field('gallery_image_1', $page_id)); $field = get_field_object('gallery_image_1', $page_id);
+                                    print_r($field);?>" class="img-fluid w-100 h-100 rounded" alt="Image">
                                     <div class="gallery-content">
                                         <div class="gallery-info">
                                             <h5 class="text-white text-uppercase mb-2">Tour dei pianeti</h5>
