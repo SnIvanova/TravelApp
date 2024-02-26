@@ -14,7 +14,6 @@ Template Name: Home
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     height: auto;
 }
 
@@ -22,7 +21,7 @@ Template Name: Home
 
 <div class="container imageBG">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-8">
+    <div class="col">
       <?php
       if ( have_posts() ) : 
         while ( have_posts() ) : the_post();

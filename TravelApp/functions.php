@@ -291,21 +291,3 @@ function fallback() {
                     
 
 
-function create_gallery_post_type() {
-    register_post_type('gallery_item',
-        array(
-            'labels'=> array(
-            'name'  => __('Gallery Items', 'textdomain'),
-            'singular_name' => __('Gallery Item', 'textdomain'),
-            ),
-            'public'      => true,
-            'has_archive' => true,
-            'supports'    => array('title', 'thumbnail'),
-            'rewrite'     => array('slug' => 'gallery-items'),
-            )
-        );
-    }
-add_action('init', 'create_gallery_post_type');  
-
-
-
