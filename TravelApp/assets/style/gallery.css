@@ -116,6 +116,10 @@ body, html {
 }
 .tab-class .nav .rounded-pill:hover {
     background-color: #98adc4 !important; 
-    color: #FFFFFF !important;
+
     transform: scale(1.2);
+}
+
+.tab-class .nav .rounded-pill:hover span {
+    color: #FFFFFF !important;
 }

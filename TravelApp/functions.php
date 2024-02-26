@@ -289,6 +289,8 @@ function fallback() {
                         </ul>';
                     }     
                     
+
+
 function create_gallery_post_type() {
     register_post_type('gallery_item',
         array(
