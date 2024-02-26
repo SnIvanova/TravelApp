@@ -4,12 +4,6 @@ function theme_setup() {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
-    register_nav_menus( array(
-        'primary' => esc_html__( 'Primary Menu', 'theme-text-domain' ),
-        'footer'  => esc_html__( 'Footer Menu', 'theme-text-domain' ),
-    ) );
-
-   
     add_theme_support( 'html5', array(
         'search-form',
         'comment-form',
@@ -18,32 +12,49 @@ function theme_setup() {
         'caption',
     ) );
 
-   
+    add_image_size('gallery-thumbnail', 600, 400, true);
+
     add_theme_support( 'custom-background', apply_filters( 'theme_custom_background_args', array(
         'default-color' => 'ffffff',
         'default-image' => '',
     ) ) );
+
+    add_theme_support('custom-logo', array(
+        'height'      => 250, 'width'       => 250,
+        'flex-width'  => true, 'flex-height' => true,
+    ));
+
+    register_nav_menus(array(
+        'primary-menu' => __('Primary Menu'),
+        'footer-menu'  => __('Footer Menu'),
+        'sidebar-menu' => __('Sidebar Menu'),
+    ));
 }
 add_action( 'after_setup_theme', 'theme_setup' );
 
 
 function theme_scripts() {
-
+    // Enqueue styles
     wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css', array(), '5.3.0' );
 
-    wp_enqueue_style( 'theme-style', get_template_directory_uri().'/style.css' );
+  
     wp_enqueue_style( 'bootstrap-icons', "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css", array(), '1.11.3' );
+   
+    // Enqueue scripts
     wp_enqueue_script( 'popper-js', get_template_directory_uri() . 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js', array(), '2.5.2', true );
     wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array('jquery', 'popper-js'), '5.3.0', true );
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/assets/js/custom-script.js'); 
-    
+
     if (is_front_page()) {wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/style/index.css');};
 
-    wp_enqueue_script('custom-script', get_template_directory_uri() . '/assets/js/custom-script.js'); 
+    wp_enqueue_style( 'theme-style', get_template_directory_uri().'/style.css' );
+    wp_enqueue_style( 'styleGallery', get_template_directory_uri().'/assets/style/gallery.css' );
     wp_enqueue_style( 'styleFooter', get_template_directory_uri().'/assets/style/styleFooter.css' );
     wp_enqueue_style( 'styleContact', get_template_directory_uri().'/assets/style/styleContact.css' );
+  
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
+
 
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = null) {
@@ -77,18 +88,6 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_Menu {
     }
 }
 
-// Funzione che serve per registrare i menu diponibili per il template
-function register_menus() {
-    register_nav_menus(
-        array(
-            'primary-menu' => __( 'Primary Menu' ),
-            'footer-menu'  => __( 'Footer Menu'),
-            'sidebar-menu'  => __( 'Sidebar Menu'),
-        )
-    );
-}
-
-add_action('init', 'register_menus');
 
 // Ability to add classes to wp_nav_menu LI tags
 
@@ -188,7 +187,7 @@ add_action('save_post', 'save_background_image_field');
 function theme_customize_register($wp_customize) {
     //contact info
     $wp_customize->add_section('contact_info', array(
-        'title'    => __('Contact Info', 'your-theme-domain'),
+        'title'    => __('Contact Info', 'theme-domain'),
         'priority' => 30,
     ));
 
@@ -200,7 +199,7 @@ function theme_customize_register($wp_customize) {
 
     // control for phone number
     $wp_customize->add_control('phone_number', array(
-        'label'    => __('Phone Number', 'your-theme-domain'),
+        'label'    => __('Phone Number', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'phone_number',
         'type'     => 'text',
@@ -215,57 +214,57 @@ function theme_customize_register($wp_customize) {
         'default'   => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting('social_links[0][url]', array(
+    $wp_customize->add_setting('social_links[1][url]', array(
         'default'   => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting('social_links[0][icon]', array(
+    $wp_customize->add_setting('social_links[1][icon]', array(
         'default'   => '',
         'transport' => 'refresh',
-    ));    $wp_customize->add_setting('social_links[0][url]', array(
+    ));    $wp_customize->add_setting('social_links[2][url]', array(
         'default'   => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting('social_links[0][icon]', array(
+    $wp_customize->add_setting('social_links[2][icon]', array(
         'default'   => '',
         'transport' => 'refresh',
     ));
 
    
     $wp_customize->add_control('social_links[0][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[0][url]',
         'type'     => 'url',
     ));
     $wp_customize->add_control('social_links[0][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
         'settings' => 'social_links[0][icon]',
         'type'     => 'text',
     ));
-    $wp_customize->add_control('social_links[0][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+    $wp_customize->add_control('social_links[1][url]', array(
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
-        'settings' => 'social_links[0][url]',
+        'settings' => 'social_links[1][url]',
         'type'     => 'url',
     ));
-    $wp_customize->add_control('social_links[0][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+    $wp_customize->add_control('social_links[1][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
-        'settings' => 'social_links[0][icon]',
+        'settings' => 'social_links[1][icon]',
         'type'     => 'text',
     ));
-    $wp_customize->add_control('social_links[0][url]', array(
-        'label'    => __('Social Link URL', 'TravelApp'),
+    $wp_customize->add_control('social_links[2][url]', array(
+        'label'    => __('Social Link URL', 'theme-domain'),
         'section'  => 'contact_info',
-        'settings' => 'social_links[0][url]',
+        'settings' => 'social_links[2][url]',
         'type'     => 'url',
     ));
-    $wp_customize->add_control('social_links[0][icon]', array(
-        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'TravelApp'),
+    $wp_customize->add_control('social_links[2][icon]', array(
+        'label'    => __('Social Link Icon (bi bi-linkedin,  bi bi-facebook, bi bi-instagram, bi bi-whatsapp)', 'theme-domain'),
         'section'  => 'contact_info',
-        'settings' => 'social_links[0][icon]',
+        'settings' => 'social_links[2][icon]',
         'type'     => 'text',
     ));
 
@@ -273,10 +272,40 @@ function theme_customize_register($wp_customize) {
 
 add_action('customize_register', 'theme_customize_register');
 
+function fallback() {
+                    echo '<ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Articles</a>
+                            </li>
+                        </ul>';
+                    }     
+                    
 
 
-
-
+function create_gallery_post_type() {
+    register_post_type('gallery_item',
+        array(
+            'labels'=> array(
+            'name'  => __('Gallery Items', 'textdomain'),
+            'singular_name' => __('Gallery Item', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'    => array('title', 'thumbnail'),
+            'rewrite'     => array('slug' => 'gallery-items'),
+            )
+        );
+    }
+add_action('init', 'create_gallery_post_type');  
 
 
 
