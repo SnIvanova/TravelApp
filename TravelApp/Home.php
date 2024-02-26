@@ -15,7 +15,9 @@ Template Name: Home
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
+
+    height: auto;
+
 }
 
 </style>

@@ -35,7 +35,7 @@
     </div>
     <!-- nav Bar -->
 <header id="masthead" class="site-header sticky-top" role="banner">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-opacity-25 p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-25 p-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php bloginfo('name'); ?>
