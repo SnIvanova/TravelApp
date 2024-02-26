@@ -7,14 +7,6 @@
     ?>
   </div> -->
   
-    <div class="position-relative" >
-    <img class="hi" src="wp-content/themes/TravelApp/assets/img/Fimg.png" alt="">
-      <div class="position-absolute top-0 start-50 translate-middle-x" >
-        <p class="text-white" >
-          Il tuo viaggio virtuale inizia qui
-        </p>
-      </div>
-    </div>
 
   <div class="container-fluid">
     <div class="row  mx-5 align-items-baseline " >
