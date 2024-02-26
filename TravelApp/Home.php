@@ -1,3 +1,4 @@
+
 <?php
 /*
 Template Name: Home
@@ -14,7 +15,9 @@ Template Name: Home
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
     height: auto;
+
 }
 
 </style>
@@ -39,4 +42,5 @@ Template Name: Home
 </div>
 <?php get_footer(); ?>
 </div>
+
 
