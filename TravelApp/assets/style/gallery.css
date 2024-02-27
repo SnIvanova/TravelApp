@@ -75,17 +75,21 @@ body, html {
     height: 100%;
     margin: 0;
 }
+.hero{
+
+    position: relative !important;
+
+}
 .video-background-container {
-    position: fixed;
+    position: absolute !important;
     right: 0;
-    bottom: 5%;
-   
+  
+    max-height: 40em;
     left: 50%;
     transform: translate(-50%, -50%);
     min-width: 100%; 
-    min-height: 80%;
-    width: auto; 
-    height: auto;
+ 
+
     z-index: -100;
     background-size: cover;
     overflow: hidden;

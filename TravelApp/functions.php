@@ -290,4 +290,46 @@ function fallback() {
                     }     
                     
 
-
+                    function mytheme_customize_register($wp_customize) {
+                        
+                        $wp_customize->add_section('gallery_settings', array(
+                            'title' => __('Gallery Settings', 'mytheme'),
+                            'priority' => 30,
+                        ));
+                    
+                        
+                        $wp_customize->add_setting('section_title', array(
+                            'default' => __('Nostra Galleria', 'mytheme'),
+                            'sanitize_callback' => 'sanitize_text_field',
+                        ));
+                    
+                        $wp_customize->add_control('section_title', array(
+                            'label' => __('Section Title', 'mytheme'),
+                            'section' => 'gallery_settings',
+                            'type' => 'text',
+                        ));
+                    
+                        $wp_customize->add_setting('gallery_title', array(
+                            'default' => __('Galleria Turismo e Viaggi.', 'mytheme'),
+                            'sanitize_callback' => 'sanitize_text_field',
+                        ));
+                    
+                        $wp_customize->add_control('gallery_title', array(
+                            'label' => __('Gallery Title', 'mytheme'),
+                            'section' => 'gallery_settings',
+                            'type' => 'text',
+                        ));
+                    
+                        $wp_customize->add_setting('gallery_description', array(
+                            'default' => __('Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.', 'mytheme'),
+                            'sanitize_callback' => 'sanitize_textarea_field',
+                        ));
+                    
+                        $wp_customize->add_control('gallery_description', array(
+                            'label' => __('Gallery Description', 'mytheme'),
+                            'section' => 'gallery_settings',
+                            'type' => 'textarea',
+                        ));
+                    }
+                    add_action('customize_register', 'mytheme_customize_register');
+                    

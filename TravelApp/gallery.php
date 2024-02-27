@@ -6,13 +6,18 @@ $page_id = get_the_ID();
 Template Name: Gallery
 */
 
-get_header(); ?>
-<div>
+get_header(); 
+$section_title = get_theme_mod('section_title', __('Nostra Galleria', 'mytheme'));
+$gallery_title = get_theme_mod('gallery_title', __('Galleria Turismo e Viaggi.', 'mytheme'));
+$gallery_description = get_theme_mod('gallery_description', __('Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.', 'mytheme'));
+?>
+
+      <div class="hero">
         <div id="video-background-container" class="video-background-container"></div>
             <div class="content-overlay mx-auto text-center gallery">
-                <h5 class="section-title px-3">Nostra Galleria</h5>
-                <h1 class="mb-4">Galleria Turismo e Viaggi.</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                <h5 class="section-title px-3"><?php echo esc_html( $section_title ); ?></h5>
+                <h1 class="mb-4"><?php echo esc_html( $gallery_title ); ?></h1>
+                    <p class="mb-0"><?php echo esc_html( $gallery_description ); ?>
                     </p>
             </div>
 
