@@ -1,4 +1,6 @@
+
 <?php
+
 /*
 Template Name: Contacts
 */
@@ -19,7 +21,7 @@ Template Name: Contacts
 <div id="content " class="widecolumn">
     <!-- <h2 id="post-<?php the_ID(); ?>"><?php the_title();?></h2> -->
     <div class="entrytext">
-    <div class="form-main">
+    <div class="form-main w-75">
     <div class="main-wrapper">
         <h2 class="form-head my-5">GET IN TOUCH!</h2>
         <form class="form-wrapper">
@@ -40,7 +42,7 @@ Template Name: Contacts
                 <textarea class="form-textarea my-4" style="height: 20vh;" maxlength="1000" rows="5" name="message" required="required" placeholder="Message"></textarea>
             </div>
             <div class="btn-wrap mt-4 text-center">
-                <button class="btn rounded-pill">SEND MESSAGE <i class="bi bi-cursor-fill"></i></button>
+                <button type="button" class="btn rounded-pill w-75 ">SEND MESSAGE <i class="bi bi-cursor-fill"></i></button>
             </div>
         </form>
     </div>
