@@ -1,0 +1,129 @@
+.gallery .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery .gallery-item img {
+    min-height: 300px;
+    object-fit: cover;
+}
+
+.gallery .gallery-item .gallery-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    transition: 0.5s;
+}
+
+.gallery .gallery-item .gallery-content .gallery-info {
+    position: relative;
+    margin-bottom: -100%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.gallery .gallery-item .gallery-plus-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.gallery .gallery-item:hover .gallery-content .gallery-info,
+.gallery .gallery-item:hover .gallery-plus-icon {
+   opacity: 1;
+   margin: 0;
+}
+
+.gallery .gallery-item img {
+    transition: 0.5s;
+}
+
+.gallery .gallery-item:hover img {
+    transform: scale(1.2);
+    
+}
+
+.gallery .gallery-item:hover .gallery-content {
+    background: rgba(19, 53, 123, 0.8);
+}
+
+.gallery .tab-class .nav-item {
+    padding: 0 0 20px 0;
+}
+.gallery .tab-class .nav-item a.active {
+    background: var(--bs-primary) !important;
+}
+
+.gallery .tab-class .nav-item a.active span {
+    color: var(--bs-white) !important;
+}
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.hero{
+
+    position: relative !important;
+
+}
+.video-background-container {
+    position: absolute !important;
+    right: 0;
+  
+    max-height: 40em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; 
+ 
+
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.video-background-container iframe {
+    position: absolute;
+    top: -25%; /* Increase negative value to "zoom in" */
+    left: -25%; /* Increase negative value to "zoom in" */
+    width: 500%; /* Increase to cover more width; adjust accordingly */
+    height: 150%; /* Increase to maintain aspect ratio */
+}
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    max-width: 900px;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-center {
+    text-align: center;
+}
+.tab-class .nav .rounded-pill:hover {
+    background-color: #98adc4 !important; 
+
+    transform: scale(1.2);
+}
+
+.tab-class .nav .rounded-pill:hover span {
+    color: #FFFFFF !important;
+}
